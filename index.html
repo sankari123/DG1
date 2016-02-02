@@ -190,7 +190,7 @@ function signPhoto()
 	    lastY=y;
         }
         
-		if (brightness<35)
+		if (brightness<25)
 		{
 		ctx.strokeStyle = '#ffffff';
 
@@ -313,7 +313,8 @@ var imageObj = new Image();
     imageObj.src = imgDataUrl;
 window.plugins.socialsharing.share('DigiGraph Share','Share',imageObj.src,null);
 } 
-navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      );
+setTimeout(function(){ navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      ); },8000);
+//navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      );
 
 }
   
