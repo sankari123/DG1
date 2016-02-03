@@ -69,17 +69,17 @@ function onConfirmExit(button) {
 function drawImageScaled_1(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
- canvas.height = window.innerHeight-60;
+ canvas.height = window.innerHeight-30;
+var srcWidth=img.width;
+ var srcHeight=img.height;
+ var ratio = Math.min(canvas.width  / srcWidth,  canvas.height/ srcHeight);
+   var i_width=srcWidth*ratio;
+   var i_height=srcHeight*ratio;
+   
+   	ctx.clearRect(0,0,canvas.width, canvas.height);
+    ctx.drawImage(img, 0,0,i_width,i_height);
+   tmp = ctx.getImageData(0,0,i_width,i_height);
 
-var hRatio = canvas.width  / img.width    ;
-   var vRatio =  canvas.height / img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
-   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
-   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-   ctx.clearRect(0,0,canvas.width, canvas.height);
-   //ctx.drawImage(img, 0,0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio);
-  ctx.drawImage(img, 0,0, img.width, img.height, centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
-   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
 
 var colorSum = 0;
  var data1 =tmp.data;
