@@ -173,6 +173,8 @@ document.body.style.backgroundImage='none';
                 palette = palette + " <div class='palette'" + " style='background-color:" + colors[i]
                     + "' onClick='setBgColor(this)'>  </div>";
             }
+			document.getElementById('palette-div').style.borderColor = "black";
+			
 			document.getElementById('palette-div').innerHTML = palette;
 			}
 
@@ -438,8 +440,8 @@ body {
 	}
 	.palette {
         float: left;
-        height: 15px;
-        width: 15px;
+        height: 50px;
+        width: 50px;
     }
 	
   </style>
@@ -469,7 +471,7 @@ body {
 </table>
   </div>
  
-    <div id='palette-div' style='border:0px solid fbd5b5; float:right;'>&nbsp;</div>
+    <div id='palette-div' style='border:2px solid fbd5b5; float:right;'>&nbsp;</div>
      <input type="hidden" id="sss">
   <BR>
 
