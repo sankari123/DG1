@@ -156,7 +156,7 @@ document.body.style.backgroundImage='none';
    
    //	document.getElementById("sketchpadapp").style.display = "block";
    //document.getElementById("sketchpadapp").style.visibility="visible";
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,destinationType: destinationType.FILE_URI,correctOrientation: true,sourceType: source });
     }
    
     function onFail(message) {
@@ -426,7 +426,7 @@ body {
 	}
  	.canvasStyle
 	{
-        border: 2px black solid;
+       /* border: 2px black solid;*/
 	position: absolute; 
      width: 100%; 
      height: 100%; 
