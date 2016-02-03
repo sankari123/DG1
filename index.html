@@ -8,11 +8,18 @@
     	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
 	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="colorPicker.css" type="text/css" />
 <script type="text/javascript" src="css-pop.js"></script>
+  <script src="jquery.min.js" type="text/javascript"></script>
+<script src="jquery.colorPicker.js" type="text/javascript"></script>
 
 
   <script>
+  function chooseColor()
+  {
+  $('#color1').colorPicker();
   
+  }
     	var imgDataUrl;
 	var start = function() {
       
@@ -159,7 +166,7 @@ document.body.style.backgroundImage='none';
     }
 function signPhoto()
 {
-   
+   document.getElementById("colorPa").style.visibility="visible";
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
@@ -373,6 +380,10 @@ body {
    /*css hack for ie*/     
 }
 	
+	.colorPa
+	{
+		visibility:hidden;
+	}
 	
 	.sketchpadapp {
 	/*border: 0px solid gray;*/
@@ -399,11 +410,7 @@ body {
   </style>
   </head>
 <body onload="start();" onunload="OnUnLoad();">
-  	 <div id="popUpDiv" style="display:none">
-
-<a href="#" onclick="popup('popUpDiv')" >Close</a>
-</div>
-	<div id="blanket" style="display:none"></div>
+  
 
 	<div id="hd1" class="hdd">
 	
@@ -427,8 +434,8 @@ body {
 </table>
   </div>
   
- <div id="popUpDiv" style="display:none"><a href="#" onclick="popup('popUpDiv')" >Close</a></div>
-	<div id="blanket" style="display:none"></div>
+<div id="colorPa"><label for="color1">Select a Color</label>
+<input id="color1" name="color1" onclick="chooseColor();" type="text" value="#333399" /></div>
 
 
 <div id="sketchpadapp">
