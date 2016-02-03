@@ -99,27 +99,11 @@ var colorSum = 0;
   }
   function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight-60;
+ // canvas.width = window.innerWidth;
+ // canvas.height = window.innerHeight-60;
    	ctx.clearRect(0,0,canvas.width, canvas.height);
-    ctx.drawImage(img, 0,0,img.width,img.height);
-   tmp = ctx.getImageData(0,0,img.width,img.height);
-
-var colorSum = 0;
- var data1 =tmp.data;
-            var r,g,b,avg;
-
-              for(var x = 0, len = data1.length; x < len; x+=4) {
-                r = data1[x];
-                g = data1[x+1];
-                b = data1[x+2];
-
-                avg = Math.floor((r+g+b)/3);
-                colorSum += avg;
-            }
-
-             brightness = Math.floor(colorSum / (canvas.width*canvas.height));
-			//alert('aaaaaa'+brightness);  
+    ctx.drawImage(img, 0,0,canvas.width,canvas.height);
+   tmp = ctx.getImageData(0,0,canvas.width,canvas.height);
   }
 
 
