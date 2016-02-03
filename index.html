@@ -175,8 +175,8 @@ function signPhoto()
    
      document.getElementById("colorPa").style.display="block";
      document.getElementById("colorPa").style.visibility="visible";
-     colrSel=document.getElementById('color2').value;
-  //   alert(colrSel);
+     colrSel=trim(document.getElementById('color2').value);
+  alert(colrSel);
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
