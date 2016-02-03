@@ -175,8 +175,8 @@ function signPhoto()
    
      document.getElementById("colorPa").style.display="block";
      document.getElementById("colorPa").style.visibility="visible";
-     colrSel=document.getElementById('color2').value;
-  alert(colrSel);
+//     colrSel=document.getElementById('color2').value;
+  //alert(colrSel);
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
@@ -218,7 +218,7 @@ function signPhoto()
      //	ctx.strokeStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
      //ctx.strokeStyle = 'red';
        // }
-       ctx.strokeStyle=colrSel;
+       ctx.strokeStyle=document.getElementById('color2').value;
        //document.getElementById('color2').value;
         
         ctx.lineCap = "round";
