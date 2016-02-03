@@ -19,6 +19,7 @@
   jQuery(document).ready(function($) {
     $('#color1').colorPicker();
     var colrSel = $('#color1').val(); 
+   
   });
   
   
@@ -171,7 +172,8 @@ function signPhoto()
    
      document.getElementById("colorPa").style.display="block";
      document.getElementById("colorPa").style.visibility="visible";
-      colrSel=document.getElementById('color1').value;
+     // colrSel=document.getElementById('color1').value;
+      alert(colrSel);
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
