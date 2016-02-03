@@ -176,7 +176,7 @@ function signPhoto()
      document.getElementById("colorPa").style.display="block";
      document.getElementById("colorPa").style.visibility="visible";
      colrSel=document.getElementById('color2').value;
-     // alert(colrSel);
+  //   alert(colrSel);
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
@@ -204,7 +204,7 @@ function signPhoto()
         if (lastX==-1) {
             lastX=x;
 	    lastY=y;
-	    ctx.strokeStyle=colrSel;
+	    
         }
         
 	//	if (brightness<25)
@@ -218,7 +218,8 @@ function signPhoto()
      //	ctx.strokeStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
      //ctx.strokeStyle = 'red';
        // }
-       
+       ctx.strokeStyle=colrSel;
+       //document.getElementById('color2').value;
         
         ctx.lineCap = "round";
         
