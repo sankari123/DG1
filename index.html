@@ -15,11 +15,10 @@
 
 
   <script>
-  function chooseColor()
-  {
+  
   $('#color1').colorPicker();
   
-  }
+  
     	var imgDataUrl;
 	var start = function() {
       
@@ -166,7 +165,10 @@ document.body.style.backgroundImage='none';
     }
 function signPhoto()
 {
-   document.getElementById("colorPa").style.visibility="visible";
+   
+     document.getElementById("colorPa").style.display="block";
+     document.getElementById("colorPa").style.visibility="visible";
+   
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
@@ -383,6 +385,7 @@ body {
 	.colorPa
 	{
 		visibility:hidden;
+		display:none;
 	}
 	
 	.sketchpadapp {
@@ -434,8 +437,8 @@ body {
 </table>
   </div>
   
-<div id="colorPa"><label for="color1">Select a Color</label>
-<input id="color1" name="color1" onclick="chooseColor();" type="text" value="#333399" /></div>
+<div id="colorPa" style="colorPa"><label for="color1">Select a Color</label>
+<input id="color1" name="color1"  type="text" value="#333399" /></div>
 
 
 <div id="sketchpadapp">
