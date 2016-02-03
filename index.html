@@ -17,10 +17,13 @@
   <script>
   
   jQuery(document).ready(function($) {
-    $('#color1').colorPicker();
-    var colrSel = $('#color1').val(); 
-   
-  });
+    $('#color1').colorPicker( { onColorChange : function(id, newValue) { 
+	//alert("ID: " + id + " has been changed to " + newValue);
+	$('#color1').val(newValue); } } );
+               
+            });
+
+
   
   
     	var imgDataUrl;
@@ -172,8 +175,8 @@ function signPhoto()
    
      document.getElementById("colorPa").style.display="block";
      document.getElementById("colorPa").style.visibility="visible";
-     // colrSel=document.getElementById('color1').value;
-      alert(colrSel);
+     colrSel=document.getElementById('color1').value;
+     // alert(colrSel);
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
