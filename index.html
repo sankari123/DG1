@@ -25,7 +25,7 @@
 	var start = function() {
       
     }
-    
+    var colrSel;
     var paused=false;
     var canvas,ctx;
     var mouseX,mouseY,mouseDown=0;
@@ -170,7 +170,7 @@ function signPhoto()
    
      document.getElementById("colorPa").style.display="block";
      document.getElementById("colorPa").style.visibility="visible";
-   
+      colrSel=document.getElementById('color1').value;
     canvas = document.getElementById('theCanvas');
         
         if (canvas.getContext)
@@ -198,19 +198,20 @@ function signPhoto()
         if (lastX==-1) {
             lastX=x;
 	    lastY=y;
+	    ctx.strokeStyle=colrSel;
         }
         
-		if (brightness<25)
-		{
-		ctx.strokeStyle = 'red';
+	//	if (brightness<25)
+	//	{
+	//	ctx.strokeStyle = 'red';
 
-		}
-		else
-		{
-        r=0; g=0; b=0; a=255;
+	//	}
+	//	else
+	//	{
+       // r=0; g=0; b=0; a=255;
      //	ctx.strokeStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
-     ctx.strokeStyle = 'red';
-        }
+     //ctx.strokeStyle = 'red';
+       // }
        
         
         ctx.lineCap = "round";
@@ -439,9 +440,9 @@ body {
 </table>
   </div>
   
-<div id="colorPa" class="colorPa">Select a Color
+<div align="center" id="colorPa" class="colorPa">Select a Color
 <input id="color1" type="text" value="#000000" /></div>
-
+<BR>
 
 <div id="sketchpadapp">
         <canvas id="theCanvas" class="canvasStyle"></canvas>
