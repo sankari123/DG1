@@ -16,15 +16,6 @@
 
   <script>
   
-  jQuery(document).ready(function($) {
-    $('#color1').colorPicker( { onColorChange : function(id, newValue) { 
-	//alert("ID: " + id + " has been changed to " + newValue);
-	$('#color2').val(newValue); } } );
-               
-            });
-
-
-  
   
     	var imgDataUrl;
 	var start = function() {
@@ -170,11 +161,36 @@ document.body.style.backgroundImage='none';
     function onFail(message) {
  //     alert('Failed because: ' + message);
     }
+    
+    function show()
+
+{
+      var colors = ["#7FFF00", "#8B008B", "#E9967A", "#FFFFFF","#00BFFF", "#DAA520", "#CD5C5C"];
+
+    var palette = "";
+
+  for(var i = 0; i < colors.length; i++) {
+                palette = palette + " <div class='palette'" + " style='background-color:" + colors[i]
+                    + "' onClick='setBgColor(this)'>  </div>";
+            }
+			document.getElementById('palette-div').innerHTML = palette;
+			}
+
+
+			function setBgColor( clickedDiv ) {
+       
+            var currentColor = clickedDiv.style.backgroundColor;
+
+            document.getElementById('sss').value = currentColor;
+
+    
+    }
+
+
 function signPhoto()
 {
    
-     document.getElementById("colorPa").style.display="block";
-     document.getElementById("colorPa").style.visibility="visible";
+     show();
 //     colrSel=document.getElementById('color2').value;
   //alert(colrSel);
     canvas = document.getElementById('theCanvas');
@@ -432,7 +448,7 @@ body {
 		<tr><td align="center">	<font face=system size=3>DigiGraph</font></td>
 	<!--<td align="right"><img src="home.png" onclick="gotoHomePage();"></td>-->
 	</tr>
-	<tr><td>&nbsp;</td></tr></table></div>
+	<tr><td><input type="hidden" id="sss"></td></tr></table></div>
 
   <div style="overflow:auto;">
 <table cellspacing="0" cellpadding="0" width="100%" style="margin: 0px;">
@@ -447,9 +463,8 @@ body {
 
 </table>
   </div>
+    <div id='palette-div' style='visibility:hidden;border:2px solid black; float:left;'>&nbsp;</div>
   
-<div id="colorPa" class="colorPa"><input type="hidden" size="8" id="color2"/>Select Signature Color<input id="color1" size="8" type="text" value="#000000" /></div>
-<BR>
 
 <div id="sketchpadapp">
         <canvas id="theCanvas" class="canvasStyle"></canvas>
