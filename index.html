@@ -19,7 +19,7 @@
   jQuery(document).ready(function($) {
     $('#color1').colorPicker( { onColorChange : function(id, newValue) { 
 	//alert("ID: " + id + " has been changed to " + newValue);
-	$('#color1').val(newValue); } } );
+	$('#color2').val(newValue); } } );
                
             });
 
@@ -175,7 +175,7 @@ function signPhoto()
    
      document.getElementById("colorPa").style.display="block";
      document.getElementById("colorPa").style.visibility="visible";
-     colrSel=document.getElementById('color1').value;
+     colrSel=document.getElementById('color2').value;
      // alert(colrSel);
     canvas = document.getElementById('theCanvas');
         
@@ -447,7 +447,7 @@ body {
   </div>
   
 <div align="center" id="colorPa" class="colorPa">Select a Color
-<input id="color1" type="text" value="#000000" /></div>
+<input id="color1" type="text" value="#000000" /><input type="text" id="color2"/></div>
 <BR>
 
 <div id="sketchpadapp">
