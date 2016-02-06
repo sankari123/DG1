@@ -79,20 +79,7 @@ function drawImageScaled_1(img, ctx) {
 var srcwidth = img.originalsize.width;
             var srcheight = img.originalsize.height;
 
- var wrh = img.width / img.height;
-            var newWidth = canvas.width;
-            var newHeight = newWidth / wrh;
-            if (newHeight > canvas.height) {
-                newHeight = canvas.height;
-                newWidth = newHeight * wrh;
-            }
-var srcWidth=img.width;
- var srcHeight=img.height;
- var ratio = Math.min(canvas.width  / srcWidth,  canvas.height/ srcHeight);
-   var i_width=srcWidth*ratio;
-   var i_height=srcHeight*ratio;
-   
-  var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+  var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,false); 
    	ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
    tmp = ctx.getImageData(0,0,result.width, result.height);
@@ -148,7 +135,7 @@ function drawImageScaled(img, ctx) {
 RememberOriginalSize(img);
 var srcwidth = img.originalsize.width;
  var srcheight = img.originalsize.height;
- var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+ var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,false); 
    	ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
    tmp = ctx.getImageData(0,0,result.width, result.height);
