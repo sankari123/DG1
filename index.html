@@ -7,6 +7,7 @@
 <script type="text/javascript" src="paint.js"></script>
     	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
+    	<script src="aspectcorrect.js"></script>
 	<link href="styles.css" rel="stylesheet" type="text/css" />
 	
 
@@ -475,6 +476,18 @@ body {
      height: 100%; 
      overflow: hidden;
     }
+    div.aspectcorrect
+        {
+            border: 1px solid #333333;
+            overflow: hidden;
+            position: relative;
+        }
+div.aspectcorrect > img
+        {
+            position: absolute;
+        }
+        
+
 	.btncss
 	{
 	
