@@ -7,7 +7,6 @@
 <script type="text/javascript" src="paint.js"></script>
     	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     	<script type="text/javascript" charset="utf-8" src="Canvas2ImagePlugin.js"></script>
-    	
 	<link href="styles.css" rel="stylesheet" type="text/css" />
 	
 
@@ -63,7 +62,7 @@ function onConfirmExit(button) {
  		 img.onload= drawImageScaled_1.bind(null, img, ctx);
 		 img.src = "data:image/jpeg;base64," + imageData;
   }
-function RememberOriginalSize(img) {
+  function RememberOriginalSize(img) {
 
             if (!img.originalsize) {
                 img.originalsize = {width : img.width, height : img.height};
@@ -72,22 +71,19 @@ function RememberOriginalSize(img) {
         }
 
 function drawImageScaled_1(img, ctx) {
-   var canvas = ctx.canvas ;
- canvas.width = window.innerWidth;
- canvas.height = window.innerHeight-50;
-  RememberOriginalSize(img);
-var srcwidth = img.originalsize.width;
-            var srcheight = img.originalsize.height;
-
-  var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
-   	ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
-   tmp = ctx.getImageData(0,0,result.width, result.height);
-    //ctx.drawImage(img, 0,0,newWidth,newHeight);
-   //tmp = ctx.getImageData(0,0,newWidth,newHeight);
+   		var canvas = ctx.canvas ;
+ 		canvas.width = window.innerWidth;
+ 		canvas.height = window.innerHeight-50;
+  		RememberOriginalSize(img);
+		var srcwidth = img.originalsize.width;
+            	var srcheight = img.originalsize.height;
+  		var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+   		ctx.clearRect(0,0,canvas.width, canvas.height);
+   		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
+   		tmp = ctx.getImageData(0,0,result.width, result.height);
+    
   }
-  
-  function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
+function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
 
     var result = { width: 0, height: 0, fScaleToTargetWidth: true };
 
@@ -128,21 +124,23 @@ var srcwidth = img.originalsize.width;
     return result;
 }
 
-function drawImageScaled(img, ctx) {
+
+
+function drawImageScaled_1old(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
  canvas.height = window.innerHeight-50;
-RememberOriginalSize(img);
-var srcwidth = img.originalsize.width;
- var srcheight = img.originalsize.height;
- var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+var srcWidth=img.width;
+ var srcHeight=img.height;
+ var ratio = Math.min(canvas.width  / srcWidth,  canvas.height/ srcHeight);
+   var i_width=srcWidth*ratio;
+   var i_height=srcHeight*ratio;
+   
    	ctx.clearRect(0,0,canvas.width, canvas.height);
-   ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
-   tmp = ctx.getImageData(0,0,result.width, result.height);
- 
+    ctx.drawImage(img, 0,0,i_width,i_height);
+   tmp = ctx.getImageData(0,0,i_width,i_height);
   }
-  
-  function drawImageScaled_old(img, ctx) {
+  function drawImageScaledold(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
  canvas.height = window.innerHeight-50;
@@ -157,7 +155,19 @@ var srcwidth = img.originalsize.width;
    tmp = ctx.getImageData(0,0,i_width,i_height);
   }
 
-
+function drawImageScaled(img, ctx) {
+   var canvas = ctx.canvas ;
+ canvas.width = window.innerWidth;
+ canvas.height = window.innerHeight-50;
+RememberOriginalSize(img);
+var srcwidth = img.originalsize.width;
+ var srcheight = img.originalsize.height;
+ var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+   	ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
+   tmp = ctx.getImageData(0,0,result.width, result.height);
+ 
+  
   
 function alertDismissed() {
             // do
@@ -178,6 +188,10 @@ function alertDismissed() {
 
 function capturePhoto() {
 document.body.style.backgroundImage='none';
+    
+
+//	document.getElementById("sketchpadapp").style.display = "block";
+  // document.getElementById("sketchpadapp").style.visibility="visible";
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,
         destinationType: destinationType.DATA_URL,correctOrientation: true });
     }
@@ -463,18 +477,6 @@ body {
      height: 100%; 
      overflow: hidden;
     }
-    div.aspectcorrect
-        {
-            border: 1px solid #333333;
-            overflow: hidden;
-            position: relative;
-        }
-div.aspectcorrect > img
-        {
-            position: absolute;
-        }
-        
-
 	.btncss
 	{
 	
