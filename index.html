@@ -65,7 +65,15 @@ function onConfirmExit(button) {
 function drawImageScaled_1(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
- canvas.height = window.innerHeight-50;
+ canvas.height = window.innerHeight;
+ 
+ var wrh = img.width / img.height;
+            var newWidth = canvas.width;
+            var newHeight = newWidth / wrh;
+            if (newHeight > canvas.height) {
+                newHeight = canvas.height;
+                newWidth = newHeight * wrh;
+            }
 var srcWidth=img.width;
  var srcHeight=img.height;
  var ratio = Math.min(canvas.width  / srcWidth,  canvas.height/ srcHeight);
@@ -73,8 +81,8 @@ var srcWidth=img.width;
    var i_height=srcHeight*ratio;
    
    	ctx.clearRect(0,0,canvas.width, canvas.height);
-    ctx.drawImage(img, 0,0,i_width,i_height);
-   tmp = ctx.getImageData(0,0,i_width,i_height);
+    ctx.drawImage(img, 0,0,newWidth,newHeight);
+   tmp = ctx.getImageData(0,0,newWidth,newHeight);
 
 
 var colorSum = 0;
@@ -129,10 +137,6 @@ function alertDismissed() {
 
 function capturePhoto() {
 document.body.style.backgroundImage='none';
-    
-
-//	document.getElementById("sketchpadapp").style.display = "block";
-  // document.getElementById("sketchpadapp").style.visibility="visible";
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,targetWidth:1024, targetHeight:768,
         destinationType: destinationType.DATA_URL,correctOrientation: true });
     }
