@@ -79,7 +79,7 @@ var srcWidth=img.width;
  var ratio = Math.min(canvas.width  / srcWidth,  canvas.height/ srcHeight);
    var i_width=srcWidth*ratio;
    var i_height=srcHeight*ratio;
-  var result = ScaleImage(img.width,img.height,canvas.width,canvas.height,true); 
+  var result = ScaleImage(img.width,img.height,canvas.width,canvas.height,false); 
    	ctx.clearRect(0,0,canvas.width, canvas.height);
    ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
    tmp = ctx.getImageData(0,0,result.width, result.height);
