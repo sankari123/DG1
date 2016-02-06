@@ -65,7 +65,7 @@ function onConfirmExit(button) {
 function drawImageScaled_1(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
- canvas.height = window.innerHeight;
+ canvas.height = window.innerHeight-20;
  
  var wrh = img.width / img.height;
             var newWidth = canvas.width;
@@ -418,8 +418,8 @@ body {
 	{
        /* border: 2px black solid;*/
 	position: absolute; 
-     width: 300px; 
-     height: 300px; 
+     width: 100%; 
+     height: 100%; 
      overflow: hidden;
     }
 	.btncss
