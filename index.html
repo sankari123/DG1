@@ -319,7 +319,7 @@ if (ctx)
         },
         document.getElementById("theCanvas")  );
  navigator.notification.alert('Image saved successfully.To view the image, open <<Pictures>> folder in your device. ',  alertDismissed,   'DigiGraph',   'OK'      );
-   }     
+}      
 }
 function showConfirm() {
 if (ctx)
@@ -330,10 +330,14 @@ imgDataUrl = canvas.toDataURL();
 var imageObj = new Image();
     imageObj.src = imgDataUrl;
 window.plugins.socialsharing.share('DG','Share',imageObj.src,null);
- }
-setTimeout(function(){ navigator.notification.alert('Image Shar.',  alertDismissed,   'DigiGraph',   'OK'); },8000);  );
-
-}  
+ 
+setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },8000);
+}
+else
+{
+	alert("Canvas empty.. Please load a image....")
+}
+}
 function onConfirm(buttonIndex) {
   if(buttonIndex==1)
   {
