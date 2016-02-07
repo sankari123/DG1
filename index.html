@@ -384,7 +384,7 @@ ctx = canvas.getContext('2d');
 imgDataUrl = canvas.toDataURL();
 var imageObj = new Image();
     imageObj.src = imgDataUrl;
-window.plugins.socialsharing.share('DG','Share',imageObj.src,alert('Share OK'), function(errormsg){alert("Share Failed...)}) // error callback);
+window.plugins.socialsharing.share('DG','Share',imageObj.src,alert('Share OK'), function(errormsg){alert("Share Failed...")}) // error callback);
  
 //setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },8000);
 }
