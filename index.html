@@ -114,8 +114,21 @@ function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) 
     result.targettop = Math.floor((targetheight - result.height) / 2);
     return result;
 }
-
 function drawImageScaled_1(img, ctx) {
+   		var canvas = ctx.canvas ;
+ 		canvas.width = window.innerWidth;
+ 		canvas.height = window.innerHeight-50;
+  		RememberOriginalSize(img);
+		var srcwidth = img.originalsize.width;
+            	var srcheight = img.originalsize.height;
+  		var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+   		ctx.clearRect(0,0,canvas.width, canvas.height);
+   		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
+   		tmp = ctx.getImageData(0,0,result.width, result.height);
+    
+  }
+  
+function drawImageScaled_1oldd(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
  canvas.height = window.innerHeight-40;
