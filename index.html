@@ -78,7 +78,7 @@ function drawImageScaled_1(img, ctx) {
   		var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
    		ctx.clearRect(0,0,canvas.width, canvas.height);
    		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
-   		tmp = ctx.getImageData(0,0,result.width, result.height);
+   		tmp = ctx.getImageData(0,0,srcwidth, srcheight);
     
   }
 function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
