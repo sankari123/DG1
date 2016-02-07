@@ -384,14 +384,23 @@ ctx = canvas.getContext('2d');
 imgDataUrl = canvas.toDataURL();
 var imageObj = new Image();
     imageObj.src = imgDataUrl;
-window.plugins.socialsharing.share('DG','Share',imageObj.src,null);
+window.plugins.socialsharing.share('DG','Share',imageObj.src,onSuccess,onError);
  
 //setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },8000);
 }
 else
 {
-	alert("Please load a image....")
+	navigator.notification.alert('Please load a image...',  alertDismissed,   'DigiGraph',   'OK');	
 }
+}
+function onSuccess()
+{
+setTimeout(function(){ navigator.notification.alert('Image Shared Successfully...',  alertDismissed,   'DigiGraph',   'OK'); },1);	
+}
+function onError()
+{
+	
+navigator.notification.alert('Image Share Failed...',  alertDismissed,   'DigiGraph',   'OK');	
 }
 function onConfirm(buttonIndex) {
   if(buttonIndex==1)
@@ -420,7 +429,8 @@ function clearCanvas() {
     
     
      function OnUnLoad() {
-           alert ("Thanks for using DigiGraph...! Please visit our website to share your thoughts...!");
+     	navigator.notification.alert('Thanks for using DigiGraph...! Please visit our website http://www.appcorridor.com to share your thoughts...!...',  alertDismissed,   'DigiGraph',   'OK');
+       //    alert ("Thanks for using DigiGraph...! Please visit our website to share your thoughts...!");
         }
         
         function popitup(url) {
