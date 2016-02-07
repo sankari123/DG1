@@ -71,7 +71,7 @@ function RememberOriginalSize(img) {
 function drawImageScaled_1(img, ctx) {
    		var canvas = ctx.canvas ;
  		canvas.width = window.innerWidth;
- 		canvas.height = window.innerHeight;
+ 		canvas.height = window.innerHeight-40;
   		RememberOriginalSize(img);
 		var srcwidth = img.originalsize.width;
             	var srcheight = img.originalsize.height;
@@ -157,7 +157,7 @@ var colorSum = 0;
   function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.height = window.innerHeight-40;
    	ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.drawImage(img, 0,0,img.width,img.height);
    tmp = ctx.getImageData(0,0,img.width,img.height);
