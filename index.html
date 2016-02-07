@@ -79,6 +79,7 @@ function drawImageScaled_1(img, ctx) {
    		ctx.clearRect(0,0,canvas.width, canvas.height);
    		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
    		tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
+   		window.addEventListener('orientationchange', doOnOrientationChange);
     
   }
 function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
@@ -137,7 +138,7 @@ var hRatio = canvas.width  / img.width    ;
    //	ctx.clearRect(0,0,canvas.width, canvas.height);
   //  ctx.drawImage(img, 0,0,img.width,img.height);
    tmp = ctx.getImageData(0,0,img.width, img.height);
-
+  window.addEventListener('orientationchange', doOnOrientationChange);
 var colorSum = 0;
  var data1 =tmp.data;
             var r,g,b,avg;
@@ -161,7 +162,7 @@ var colorSum = 0;
    	ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.drawImage(img, 0,0,img.width,img.height);
    tmp = ctx.getImageData(0,0,img.width,img.height);
-
+window.addEventListener('orientationchange', doOnOrientationChange);
 var colorSum = 0;
  var data1 =tmp.data;
             var r,g,b,avg;
