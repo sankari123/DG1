@@ -242,9 +242,19 @@ function setBgColor(clickedDiv ) {
 	}
     
     
+function doOnOrientationChange()
+{
+      if (screen.height > screen.width) {
+         window.orientation='portrait';
+      } else {
+         window.orientation='landscape';
+      }
+}
+
 function signPhoto()
 {
    
+    window.addEventListener('orientationchange', doOnOrientationChange);
     show();
 	canvas = document.getElementById('theCanvas');
         
