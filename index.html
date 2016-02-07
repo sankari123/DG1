@@ -70,7 +70,7 @@ function onConfirmExit(button) {
 function drawImageScaled_1(img, ctx) {
    		var canvas = ctx.canvas ;
  		canvas.width = window.innerWidth;
- 		canvas.height = window.innerHeight-50;
+ 		canvas.height = window.innerHeight;
   		RememberOriginalSize(img);
 		var srcwidth = img.originalsize.width;
             	var srcheight = img.originalsize.height;
@@ -130,7 +130,7 @@ var srcWidth=img.width;
   function drawImageScaledold(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
- canvas.height = window.innerHeight-50;
+ canvas.height = window.innerHeight;
  var srcWidth=img.width;
  var srcHeight=img.height;
  var ratio = Math.min(canvas.width  / srcWidth,  canvas.height/ srcHeight);
@@ -144,7 +144,7 @@ var srcWidth=img.width;
 function drawImageScaled(img, ctx) {
    var canvas = ctx.canvas ;
  canvas.width = window.innerWidth;
- canvas.height = window.innerHeight-50;
+ canvas.height = window.innerHeight;
 RememberOriginalSize(img);
 var srcwidth = img.originalsize.width;
  var srcheight = img.originalsize.height;
@@ -352,9 +352,13 @@ ctx = canvas.getContext('2d');
 imgDataUrl = canvas.toDataURL();
 var imageObj = new Image();
     imageObj.src = imgDataUrl;
-window.plugins.socialsharing.share('DigiGraph Share','Share',imageObj.src,null);
-} 
+window.plugins.socialsharing.share('DG','Share',imageObj.src,null);
 setTimeout(function(){ navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      ); },8000);
+}
+else
+{
+alert("Please load a image");
+}
 //navigator.notification.alert('Image Share successful... ',  alertDismissed,   'DigiGraph',   'OK'      );
 }
   
@@ -367,23 +371,17 @@ function onConfirm(buttonIndex) {
 function clearCanvas() {
 	var c=document.getElementById("theCanvas");
 	var ctx=c.getContext("2d");
-	
-	  
-       ctx.clearRect(0, 0, c.width, c.height);
-	   ctx.putImageData(tmp,0,0);
-    }
+	 ctx.clearRect(0, 0, c.width, c.height);
+	 ctx.putImageData(tmp,0,0);
+   }
     
     function clearCanvas_1() {
 	var canvas=document.getElementById("theCanvas");
 	var ctx=canvas.getContext("2d");
-       ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 	  
     }
-    
-  
-    	
-    
-    
+
      function OnUnLoad() {
        alert ("Thanks for using DigiGraph...! Please visit our website http://www.appcorridor.com to share your thoughts...!");
         }
