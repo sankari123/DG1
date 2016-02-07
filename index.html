@@ -160,10 +160,16 @@ var colorSum = 0;
    var canvas = ctx.canvas ;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight-40;
-   	ctx.clearRect(0,0,canvas.width, canvas.height);
-   	window.addEventListener('orientationchange', doOnOrientationChange);
-    ctx.drawImage(img, 0,0,img.width,img.height);
-   tmp = ctx.getImageData(0,0,img.width,img.height);
+  RememberOriginalSize(img);
+  var srcwidth = img.originalsize.width;
+            	var srcheight = img.originalsize.height;
+  		var result = ScaleImage(srcwidth,srcheight,canvas.width,canvas.height,true); 
+   		ctx.clearRect(0,0,canvas.width, canvas.height);
+   		window.addEventListener('orientationchange', doOnOrientationChange);
+   		ctx.drawImage(img, result.targetleft, result.targettop, result.width, result.height);
+   		
+   
+   tmp = ctx.getImageData(0,0,canvas.width, canvas.height);
 var colorSum = 0;
  var data1 =tmp.data;
             var r,g,b,avg;
