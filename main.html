@@ -229,12 +229,12 @@ document.body.style.backgroundImage='none';
 {
       if (show_color==false)
       {
-      var colors = ["#7FFF00", "#8B008B", "#E9967A", "#FFFFFF","#00BFFF", "#DAA520", "#CD5C5C"];
+      var colors = ["#7FFF00","#7FFF00", "#8B008B", "#E9967A", "#FFFFFF","#00BFFF", "#DAA520", "#CD5C5C"];
            show_color=true;
     var palette = "";
   for(var i = 0; i < colors.length; i++) {
                 palette = palette + " <div class='palette'" + " style='background-color:" + colors[i]
-                    + "' onClick='setBgColor(this)'>  </div>";
+                    + "' onClick='setBgColor(this)'> &nbsp; </div>";
             }
 			document.getElementById('palette-div').style.borderColor = "black";
 			
